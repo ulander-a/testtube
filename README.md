@@ -1,3 +1,5 @@
-🧪 - A Flask app
+# 🧪 - A Flask app
+
+## Install
 
 Just run ```docker-compose up --build```
