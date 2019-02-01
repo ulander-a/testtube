@@ -39,9 +39,17 @@ def static_proxy(path):
     dir_name = os.path.join('dist', '/'.join(path.split('/')[:-1]))
     return send_from_directory(dir_name, file_name)
 
+def list_routes():
+    routes = []
+
+    for rule in app.url_map.iter_rules():
+        routes.append('%s' % rule)
+
+    LOG.info('Got routes: %s', routes)
 
 if __name__ == '__main__':
     LOG.info('running environment: %s', os.environ.get('ENV'))
+    list_routes()
     app.config['DEBUG'] = os.environ.get('ENV') == 'development' # Debug mode if development env
 
 app.run(host='0.0.0.0', port=int(PORT)) # Run the app
