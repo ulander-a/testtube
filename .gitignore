@@ -1,3 +1,4 @@
 /.vscode
-/modules/app/__pycache__/*
-/output.log
+/modules/app/__pycache__
+/modules/app/*/__pycache__
+output.log
