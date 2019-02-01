@@ -12,7 +12,8 @@ from modules.app import app
 
 # Create a logger object to log the info and debug
 LOG = logger.get_root_logger(os.environ.get(
-    'ROOT_LOGGER', 'root'), filename=os.path.join(ROOT_PATH, 'output.log'))
+        'ROOT_LOGGER', 'root'), filename=os.path.join(ROOT_PATH, 'output.log')
+    )
 
 # Port variable to run the server on.
 PORT = os.environ.get('PORT')
@@ -42,4 +43,5 @@ def static_proxy(path):
 if __name__ == '__main__':
     LOG.info('running environment: %s', os.environ.get('ENV'))
     app.config['DEBUG'] = os.environ.get('ENV') == 'development' # Debug mode if development env
+
 app.run(host='0.0.0.0', port=int(PORT)) # Run the app
